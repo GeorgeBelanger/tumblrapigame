@@ -13,7 +13,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index')
+  response.render('pages/tumblrapigame')
 });
 
 app.get('/cool', function(request, response) {
