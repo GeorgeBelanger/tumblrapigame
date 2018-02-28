@@ -16,15 +16,18 @@
 		display: none;
 	}
 
-	.total body{
+	.total{
 		display: inline-block;
+	}
+	body{
+		margin: 0px 0px;
 	}
 	.store{
 		display: none;
 	}
 	.box{
 		border-radius: 8px;
-		width: 200px;
+		width: 23.5vw;
 		display: inline-block;
 		border: solid;
 		text-align: center;
@@ -32,23 +35,33 @@
 
 	}
 	.start{
-		font-size: 16px;
+		font-size: 26px;
 		text-align: center;
+		width: 110vw;
+		background: lightgray;
+		padding: 0px 0px;
+		margin: 0px 0px;
+	}
+
+	.counter{
+		font-size :26px;
+		text-align: center;
+		display: inline-block;
 	}
 
 </style>
 </head>
 <body class='total'>
 
+
+<h1 class='start'>Guessing Game! Amount correct in a row: <p class='counter'>0</p></h1>
+<h2 class='box'>Baby Cat</h2>
+<h2 class='box'>Cat</h2>
+<h2 class='box'>Kitten</h2>
+<h2 class='box'>Small Cat</h2>
+<h2 class='store'>Small Cat</h2>
+
 <input type="text" name="imageSearch" class ='inputField'><input type="submit" name="imageSearch" class='submit'>
-
-<h1 class='start'>Guess the image search</h1>
-<h2 class='box'>Do</h2>
-<h2 class='box'>You</h2>
-<h2 class='box'>Know</h2>
-<h2 class='box'>De way</h2>
-<h2 class='store'>De way</h2>
-
 <ul class='list'></ul>
 
 <script>/*!
@@ -70,12 +83,24 @@ let search = document.querySelector('.inputField');
 let submission = document.querySelector('.submit');
 let store = document.querySelector('.store');
 let list = document.querySelector('.list');
+let counter = document.querySelector('.counter')
+let j = 0
+
 
 for (let i=0;i<boxes.length;i++){
 	let box = boxes[i];
+	box.style.background = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
 box.onclick = function(input){
-	if (box.innerHTML==store.innerHTML){window.alert('Correct!')}
-	else{window.alert('Nope sorry- answer was ' + store.innerHTML)}		
+	if (box.innerHTML==store.innerHTML){
+		window.alert('Correct!'); 
+		j++;
+		counter.innerHTML= j;
+	}
+	else{
+		window.alert('Nooo sorry- answer was ' + store.innerHTML);
+		j = 0;
+		counter.innerHTML = j;
+	}		
 	list.innerHTML = "";
 	for (let i=0;i<boxes.length;i++){
 		let box = boxes[i]
@@ -123,7 +148,7 @@ var msnry = new Masonry( elem, {
 
 )}
 
-getTaggedPhotos('de way');
+getTaggedPhotos('Small Cat');
 
 
 
