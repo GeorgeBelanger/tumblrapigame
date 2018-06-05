@@ -32,7 +32,10 @@
 		border: solid;
 		text-align: center;
 		height: 34px;
-
+		transition: transform .1s;
+	}
+	.box:hover{
+  		transform: scale(1.1);
 	}
 	.start{
 		font-size: 26px;
@@ -97,7 +100,7 @@ box.onclick = function(input){
 		counter.innerHTML= j;
 	}
 	else{
-		window.alert('Nooo sorry- answer was ' + store.innerHTML);
+		window.alert('Sorry- answer was ' + store.innerHTML);
 		j = 0;
 		counter.innerHTML = j;
 	}		
