@@ -87,7 +87,7 @@ let submission = document.querySelector('.submit');
 let store = document.querySelector('.store');
 let list = document.querySelector('.list');
 let counter = document.querySelector('.counter')
-let j = 0
+let numberCorrect = 0
 
 
 for (let i=0;i<boxes.length;i++){
@@ -96,13 +96,13 @@ for (let i=0;i<boxes.length;i++){
 box.onclick = function(input){
 	if (box.innerHTML==store.innerHTML){
 		window.alert('Correct!'); 
-		j++;
-		counter.innerHTML= j;
+		numberCorrect++;
+		counter.innerHTML= numberCorrect;
 	}
 	else{
 		window.alert('Sorry- answer was ' + store.innerHTML);
-		j = 0;
-		counter.innerHTML = j;
+		numberCorrect = 0;
+		counter.innerHTML = numberCorrect;
 	}		
 	list.innerHTML = "";
 	for (let i=0;i<boxes.length;i++){
